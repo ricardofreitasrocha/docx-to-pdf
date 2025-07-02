@@ -1,0 +1,12 @@
+services:
+  file-sharer:
+    image: docx-to-pdf:latest
+    container_name: docx-to-pdf
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    restart: unless-stopped
+    ports:
+      - "3001:3000"
+    volumes:
+      - ./templates:/app/templates
